@@ -11,7 +11,7 @@ const handleConnection = (socket) => {
   // Instructions for the user
   socket.write('\nHello user!\n');
   socket.write('\nAdd a message in the following format:\n');
-  socket.write('{ "guid": "6fdf6ffc-ed77-94fa-407e-a7b86ed9e59d", "datetime": "2018-01-22T11:43:39.145Z" }\n');
+  socket.write('{ "guid": "cac5afd610a743ea8594ac19b2c130ee", "datetime": "2018-01-22T11:43:39.145Z" }\n');
   socket.write('\nYour message: ');
   
   // Send error message to back to the user
@@ -21,7 +21,7 @@ const handleConnection = (socket) => {
 
   // Gets the data from the client
   socket.on('data', (data) => {
-    // Parse input from JSON, data is a Buffer, it has to be converted to string firsts!
+    // Parse input from JSON, data is a Buffer, it has to be converted to string first!
     let input = JSON.parse(data.toString());
     console.log(input);
 
@@ -30,16 +30,14 @@ const handleConnection = (socket) => {
       .save((err) => {
         // If an error occurs, an error message is sent
         if (err) {
-          socket.write('\n');
           socket.end(err);
-          return console.error(err);
+          console.error(err);
         }
         reply = {
           status: 'OK',
           error: null
         }
         // Returns a success message to the client and ends connection
-        socket.write('\n');
         socket.end(JSON.stringify(reply));
         console.log(reply);
       });
