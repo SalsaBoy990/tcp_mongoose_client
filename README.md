@@ -1,4 +1,4 @@
-# tcp_mongoose - TCP Server with MongoDB using Node.js and Mongoose
+# tcp_mongoose_client - TCP Client and Server with MongoDB using Node.js and Mongoose
 
 ## Install MongoDB on your computer
 
@@ -33,17 +33,12 @@ Download required packages (save them locally):
 
 Start the server: `node server`
 
-## Download Netcat, connect to our server
+## Connect to the server and start the client
 
-* [Windows version](https://joncraton.org/blog/46/netcat-for-windows/)
-* [Linux](https://www.unixmen.com/play-with-netcat-in-ubuntu/)
+1. Start the server in command line: `node server`
+2. Start the client in an other command line window: `node client`
 
-On Windows add nc.exe to the global PATH variable then you can use it everywhere.
-
-Connect to the server: `nc localhost 5000` where the 5000 is our port number
-
-
-## The client should send a message through TCP in the following format: 
+## The client send a message through TCP in the following format in every five second: 
 
 `{
 `	"guid": "63d8da48­8ec8­4394­aa2b­e5d81132ddc6",
@@ -58,6 +53,8 @@ If the input was correct, you will get the following response message:
 `}
 
 Otherwise, you will receive an error message
+
+You can stop the server app with CTRL+c any time
 
 ## Check your input record in the Mongo database
 
