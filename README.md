@@ -11,9 +11,7 @@ mongodb-win32-x86_64-2008plus-ssl-3.2.9-signed.msi
 
 run this command:
 
-`mongod --directoryperdb --dbpath C:\mongodb\data\db --logpath C:\mongodb\log
-
-\mongo.log --logappend --install`
+`mongod --directoryperdb --dbpath C:\mongodb\data\db --logpath C:\mongodb\log\mongo.log --logappend --install`
 
 * Run the service: `net start MongoDB`
 * Run the shell application: `mongo`
